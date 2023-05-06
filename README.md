@@ -1,5 +1,5 @@
 # OGP-CREATER
-![](hello,%20world.png)
+![](hello,-world.png)
 ## icon license
 icon画像はフリーではありません。**無断使用禁止**です。
 

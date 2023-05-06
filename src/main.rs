@@ -200,7 +200,7 @@ fn draw_centered_text(
             .sum::<f32>();
         let start_x_first: f32 = (image.width() as f32 - first_half_width) / 2.0;
         let start_x_second: f32 = (image.width() as f32 - second_half_width) / 2.0;
-        let start_y_first: f32 = image.height() as f32 / 2.0 - text_height * scale_factor;
+        let start_y_first: f32 = image.height() as f32 / 2.0 - text_height * scale_factor - 10.0;
         let start_y_second: f32 = image.height() as f32 / 2.0;
 
         draw_text_mut(
@@ -258,7 +258,8 @@ fn main() {
     let text: &str = "ゆーちゃんのブログ"; // 文字列
     let text: &str = &env::args().nth(1).unwrap_or(text.to_string()); // 引数がなければデフォルトの文字列を使用
     let icon_path: &str = "icon.png"; // アイコン画像のパス
-    let out_path: String = format!("{}.png", text); // 出力先のパス
+    let text_without_spaces = text.replace(" ", "-");
+    let out_path: String = format!("{}.png", text_without_spaces); // 出力先のパス
     let font_data = include_bytes!("/home/yuto/ogp-creater/NotoSansJP-Bold.ttf"); // 利用するフォントファイルのパス
     let font: Font = Font::try_from_bytes(font_data as &[u8]).unwrap();
     let image = create_ogp_image(text, icon_path, &font);
