@@ -4,11 +4,10 @@ use imageproc::drawing::draw_filled_circle_mut;
 use imageproc::drawing::draw_filled_rect_mut;
 use imageproc::drawing::draw_text_mut;
 use lindera_core::{mode::Mode, LinderaResult};
-use lindera_dictionary::{DictionaryConfig, DictionaryKind, UserDictionaryConfig};
+use lindera_dictionary::{DictionaryConfig, DictionaryKind};
 use lindera_tokenizer::tokenizer::{Tokenizer, TokenizerConfig};
 use rusttype::{Font, Scale};
 use std::env;
-use std::path::PathBuf;
 
 fn create_background(width: u32, height: u32, color: Rgba<u8>) -> ImageBuffer<Rgba<u8>, Vec<u8>> {
     ImageBuffer::from_fn(width, height, |_, _| color)
@@ -109,14 +108,9 @@ fn split_string(
         path: None,
     };
 
-    let user_dictionary = Some(UserDictionaryConfig {
-        kind: Some(DictionaryKind::IPADIC),
-        path: PathBuf::from("/home/yuto/ogp-creater/user-dict.csv"),
-    });
-
     let config: TokenizerConfig = TokenizerConfig {
         dictionary,
-        user_dictionary,
+        user_dictionary: None,
         mode: Mode::Normal,
     };
 
