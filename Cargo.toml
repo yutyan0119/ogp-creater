@@ -9,3 +9,6 @@ edition = "2021"
 image = "0.24.6"
 imageproc = "0.23.0"
 rusttype = "0.9.3"
+lindera-tokenizer = { version = "0.25.0", features = ["ipadic"] }
+lindera-core = "0.25.0"
+lindera-dictionary = "0.25.0"
