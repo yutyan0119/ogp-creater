@@ -12,3 +12,10 @@ rusttype = "0.9.3"
 lindera-tokenizer = { version = "0.25.0", features = ["ipadic"] }
 lindera-core = "0.25.0"
 lindera-dictionary = "0.25.0"
+
+[profile.release]
+lto = true		# Link Time Optimization: 重複利用されるクレートを1本にする
+opt-level = "z"	# z でサイズ縮小すると、regex を主に使うとき、20 % ほど遅かった
+codegen-units = 1	# リンク処理を1スレッドで行い、時間がかかるうがバイナリサイズは小さくなる
+panic = "abort"
+strip = true
