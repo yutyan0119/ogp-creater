@@ -233,7 +233,7 @@ fn main() {
     let icon_path: &str = "icon.png"; // アイコン画像のパス
     let text_without_spaces = text.replace(" ", "-");
     let out_path: String = format!("{}.png", text_without_spaces); // 出力先のパス
-    let font_data = include_bytes!("/home/yuto/ogp-creater/NotoSansJP-Bold.ttf"); // 利用するフォントファイルのパス
+    let font_data = include_bytes!("../NotoSansJP-Bold.ttf"); // 利用するフォントファイルのパス
     let font: Font = Font::try_from_bytes(font_data as &[u8]).unwrap();
     let image = create_ogp_image(text, icon_path, &font);
     image.save(out_path).unwrap();
