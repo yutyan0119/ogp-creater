@@ -157,7 +157,7 @@ fn draw_centered_lines(
     let v_metrics: rusttype::VMetrics = font.v_metrics(scale);
     let line_height: f32 = v_metrics.ascent - v_metrics.descent + v_metrics.line_gap;
     let text_height: f32 = line_height * lines.len() as f32;
-    let start_y: f32 = (image.height() as f32 - text_height) / 2.0;
+    let start_y: f32 = (image.height() as f32 - text_height) / 2.0 + 25.0;
 
     for (i, line) in lines.iter().enumerate() {
         let text_width: f32 = line
